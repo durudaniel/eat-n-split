@@ -41,7 +41,13 @@ export default function App() {
   }
 
   function handleSplitBill(value) {
-    console.log(value);
+    setFriends((friend) =>
+      friend.map((friends) =>
+        friends.id === selectedFriend
+          ? { ...friend, balance: friends.balance + value }
+          : friends
+      )
+    );
   }
   return (
     <div className="app">
