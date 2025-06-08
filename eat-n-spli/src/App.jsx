@@ -24,6 +24,9 @@ export default function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [selectedFriend, setSelectedFriend] = useState(null);
 
+  //console.log(selectedFriend);
+  //console.log(friends);
+  //console.log(friends.id === selectedFriend);
   function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend]);
 
@@ -41,11 +44,11 @@ export default function App() {
   }
 
   function handleSplitBill(value) {
-    console.log(value);
+    //console.log(value);
     setFriends((friend) =>
       friend.map((friends) =>
-        friends.id === selectedFriend
-          ? { ...friend, balance: friends.balance + value }
+        friends.name === selectedFriend
+          ? { ...friends, balance: friends.balance + value }
           : friends
       )
     );
